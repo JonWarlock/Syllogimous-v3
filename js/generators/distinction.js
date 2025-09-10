@@ -2,8 +2,8 @@ function createSamePremise(a, b) {
     return {
         start: a,
         end: b,
-        relation: 'is same as',
-        reverse: 'is opposite of',
+        relation: 'é igual a',
+        reverse: 'é oposto de',
         relationMinimal: '=',
         reverseMinimal: '☍',
     }
@@ -13,8 +13,8 @@ function createOppositePremise(a, b) {
     return {
         start: a,
         end: b,
-        relation: 'is opposite of',
-        reverse: 'is same as',
+        relation: 'é oposto de',
+        reverse: 'é igual a',
         relationMinimal: '☍',
         reverseMinimal: '=',
     }

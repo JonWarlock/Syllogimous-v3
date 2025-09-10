@@ -98,11 +98,11 @@ class LinearGenerator {
     }
 }
 
-const MORE_LESS = new LinearGenerator('Comparison', 'is less than', '<', 'is more than', '>', 'is equal to', '=');
-const BEFORE_AFTER = new LinearGenerator('Temporal', 'is before', '[svg]4[/svg]', 'is after', '[svg]5[/svg]', 'is at', '=');
-const CONTAINS_WITHIN = new LinearGenerator('Contains', 'contains', '⊃', 'is within', '⊂', 'is the same as', '=');
-const LEFT_RIGHT = new LinearGenerator('Horizontal', 'is left of', '[svg]9[/svg]', 'is right of', '[svg]8[/svg]', 'is at', '=');
-const TOP_UNDER = new LinearGenerator('Vertical', 'is on top of', '[svg]7[/svg]', 'is under', '[svg]6[/svg]', 'is at', '=');
+const MORE_LESS = new LinearGenerator('Comparison', 'é menos que', '<', 'é mais que', '>', '´´e igual a', '=');
+const BEFORE_AFTER = new LinearGenerator('Temporal', 'está antes de', '[svg]4[/svg]', 'está depois de', '[svg]5[/svg]', 'está em', '=');
+const CONTAINS_WITHIN = new LinearGenerator('Contains', 'contém', '⊃', 'está dentro de', '⊂', 'é o mesmo que', '=');
+const LEFT_RIGHT = new LinearGenerator('Horizontal', 'está a esquerda de', '[svg]9[/svg]', 'está a direita de', '[svg]8[/svg]', 'está em', '=');
+const TOP_UNDER = new LinearGenerator('Vertical', 'está acima de', '[svg]7[/svg]', 'está abaixo de', '[svg]6[/svg]', 'está em', '=');
 
 class LinearQuestion {
     constructor(linearGenerator) {

@@ -14,7 +14,7 @@ let appState = {
     "isLegacyOpen": false,
     "sfx": "none",
     "fastUi": true,
-    "staticButtons": true,
+    "staticButtons": false,
     "darkMode": true,
 };
 
@@ -46,7 +46,7 @@ let savedata = {
     "useGarbageWords": false,
     "useEmoji": false,
     "meaningfulWordNouns": true,
-    "meaningfulWordAdjectives": false,
+    "meaningfulWordAdjectives": true,
     "overrideDistinctionPremises": null,
     "overrideLinearPremises": null,
     "overrideSyllogismPremises": null,
@@ -65,34 +65,34 @@ let savedata = {
     "overrideDirection3DTime": null,
     "overrideDirection4DTime": null,
     "overrideAnchorSpaceTime": null,
-    "overrideDistinctionWeight": 150,
-    "overrideLeftRightWeight": 100,
-    "overrideTopUnderWeight": 100,
-    "overrideComparisonWeight": 100,
-    "overrideTemporalWeight": 100,
-    "overrideContainsWeight": 100,
-    "overrideSyllogismWeight": 100,
+    "overrideDistinctionWeight": 90,
+    "overrideLeftRightWeight": 0,
+    "overrideTopUnderWeight": 0,
+    "overrideComparisonWeight": 80,
+    "overrideTemporalWeight": 70,
+    "overrideContainsWeight": 60,
+    "overrideSyllogismWeight": 0,
     "overrideDirectionWeight": 100,
-    "overrideDirection3DWeight": 100,
-    "overrideDirection4DWeight": 100,
-    "overrideAnchorSpaceWeight": 100,
+    "overrideDirection3DWeight": 50,
+    "overrideDirection4DWeight": 0,
+    "overrideAnchorSpaceWeight": 0,
     "useJunkEmoji": false,
     "useVisualNoise": false,
     "visualNoiseSplits": 5,
     "space2DHardModeLevel": 0,
     "space3DHardModeLevel": 0,
     "space4DHardModeLevel": 0,
-    "scrambleFactor": 80,
+    "scrambleFactor": 0,
     "enableConnectionBranching": true,
     "enableTransformSet": true,
     "enableTransformMirror": true,
     "enableTransformScale": true,
     "enableTransformRotate": false,
     "enableTransformInterleave": false,
-    "autoProgression": false,
+    "autoProgression": true,
     "autoProgressionGoal": 10,
-    "autoProgressionTrailing": 20,
-    "autoProgressionPercentSuccess": 90,
+    "autoProgressionTrailing": 40,
+    "autoProgressionPercentSuccess": 100,
     "autoProgressionPercentFail": 65,
     "autoProgressionGrouping": 'separate',
     "spoilerConclusion": false,
@@ -4315,40 +4315,40 @@ const validRules = [
 // This seems such a stupid idea but it opens the possibility of variants
 const forms = [
     [
-        'All <span class="subject">$</span> is <span class="subject">$</span>',
-        'No <span class="subject">$</span> is <span class="subject">$</span>',
-        'Some <span class="subject">$</span> is <span class="subject">$</span>',
-        'Some <span class="subject">$</span> is not <span class="subject">$</span>'
+        'todo <span class="subject">$</span> é <span class="subject">$</span>',
+        'nenhum <span class="subject">$</span> é <span class="subject">$</span>',
+        'algum <span class="subject">$</span> é <span class="subject">$</span>',
+        'algum <span class="subject">$</span> não é <span class="subject">$</span>'
     ],
     [
-        '<span class="is-negated">No</span> <span class="subject">$</span> is <span class="subject">$</span>',
-        '<span class="is-negated">All</span> <span class="subject">$</span> is <span class="subject">$</span>',
-        'Some <span class="subject">$</span> <span class="is-negated">is not</span> <span class="subject">$</span>',
-        'Some <span class="subject">$</span> <span class="is-negated">is</span> <span class="subject">$</span>'
+        '<span class="is-negated">nenhum</span> <span class="subject">$</span> é <span class="subject">$</span>',
+        '<span class="is-negated">todo</span> <span class="subject">$</span> é <span class="subject">$</span>',
+        'algumm <span class="subject">$</span> <span class="is-negated">não é</span> <span class="subject">$</span>',
+        'algum <span class="subject">$</span> <span class="is-negated">é</span> <span class="subject">$</span>'
     ],
 ];
 
 const dirNames = [
     null,
-    "North",
-    "North-East",
-    "East",
-    "South-East",
-    "South",
-    "South-West",
-    "West",
-    "North-West"
+    "norte",
+    "nordeste",
+    "leste",
+    "sudeste",
+    "sul",
+    "sudoeste",
+    "oeste",
+    "noroeste"
 ];
 
 const nameInverseDir = {
-    "North": "South",
-    "North-East": "South-West",
-    "East": "West",
-    "South-East": "North-West",
-    "South": "North",
-    "South-West": "North-East",
-    "West": "East",
-    "North-West": "South-East"
+    "norte": "sul",
+    "nordeste": "sudoeste",
+    "leste": "oeste",
+    "sudeste": "noroeste",
+    "sul": "norte",
+    "sudoeste": "nordeste",
+    "oeste": "leste",
+    "noroeste": "sudeste"
 };
 
 const dirCoords = [
@@ -4365,14 +4365,14 @@ const dirCoords = [
 
 const dirString = (x, y, z) => {
     let str = '';
-    if (z === 1) str = 'Above';
-    if (z === -1) str = 'Below';
-    if (z && (x || y)) str += ' and ';
-    if (y === 1) str += 'North';
-    if (y === -1) str += 'South';
+    if (z === 1) str = 'acima';
+    if (z === -1) str = 'abaixo';
+    if (z && (x || y)) str += ' e ';
+    if (y === 1) str += 'norte';
+    if (y === -1) str += 'sul';
     if (y && x) str += '-';
-    if (x === 1) str += 'East';
-    if (x === -1) str += 'West';
+    if (x === 1) str += 'leste';
+    if (x === -1) str += 'oeste';
     return str;
 }
 
@@ -4459,16 +4459,16 @@ xs.map(x =>
     )
 );
 
-const timeNames = ['was', 'is', 'will be'];
+const timeNames = ['estava', 'está', 'estará'];
 const timeMapping = {
-    [-1]: 'was',
-    [0]: 'is',
-    [1]: 'will be'
+    [-1]: 'estava',
+    [0]: 'está',
+    [1]: 'estará'
 }
 const reverseTimeNames = {
-    'was': 'will be',
-    'is': 'is',
-    'will be': 'was'
+    'estava': 'estará',
+    'está': 'está',
+    'estará': 'estava'
 }
 
 const dimensionNames = {
