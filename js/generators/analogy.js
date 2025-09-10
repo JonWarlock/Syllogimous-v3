@@ -1,33 +1,33 @@
 function pickAnalogyStatementSameTwoOptions() {
     return pickNegatable([
-        '<div class="analogy-statement">is the same as</div>',
-        '<div class="analogy-statement" style="color: red;">is different from</div>'
+        '<div class="analogy-statement">é igual a</div>',
+        '<div class="analogy-statement" style="color: red;">é diferente de</div>'
     ]);
 }
 
 function pickAnalogyStatementDifferentTwoOptions() {
     return pickNegatable([
-        '<div class="analogy-statement">is different from</div>',
-        '<div class="analogy-statement" style="color: red;">is the same as</div>'
+        '<div class="analogy-statement">é diferente de</div>',
+        '<div class="analogy-statement" style="color: red;">é igual a</div>'
     ]);
 }
 
 function pickAnalogyStatementSame() {
     return pickNegatable([
-        '<div class="analogy-statement">has the same relation as</div>',
-        '<div class="analogy-statement" style="color: red">has a different relation from</div>',
+        '<div class="analogy-statement">tem a mesma relação que</div>',
+        '<div class="analogy-statement" style="color: red">tem uma relação diferente de</div>',
     ]);
 }
 
 function pickAnalogyStatementDifferent() {
     return pickNegatable([
-        '<div class="analogy-statement">has a different relation from</div>',
-        '<div class="analogy-statement" style="color: red">has the same relation as</div>',
+        '<div class="analogy-statement">tem uma relação diferente de</div>',
+        '<div class="analogy-statement" style="color: red">tem a mesma relação que</div>',
     ]);
 }
 
 function analogyTo(a, b) {
-    return `<span class="subject">${a}</span> to <span class="subject">${b}</span>`;
+    return `<span class="subject">${a}</span> para <span class="subject">${b}</span>`;
 }
 
 class AnalogyQuestion {

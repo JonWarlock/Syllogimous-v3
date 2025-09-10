@@ -1,5 +1,5 @@
 function createNonsenseWord() {
-    const vowels = ['A', 'E', 'I', 'O', 'U'], consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
+    const vowels = ['a', 'e', 'i', 'o', 'u'], consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'];
     for (string = ''; string.length < savedata.nonsenseWordLength;) {
         if ((string.length + 1) % 2) 
             string += consonants[Math.floor(Math.random() * 21)];
@@ -17,7 +17,7 @@ function createNonsenseWord() {
 }
 
 function createGarbageWord() {
-    const consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z'];
+    const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'];
     let string = '';
     while (string.length < savedata.garbageWordLength) {
         const c = consonants[Math.floor(Math.random() * consonants.length)]
