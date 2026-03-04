@@ -1,21 +1,37 @@
-function renderConclusionAsQuestion(conclusionHtml, q) {
-    // Parse the conclusion HTML and convert simple "SUBJECT relation SUBJECT" forms into a question.
-    const tmp = document.createElement('div');
-    tmp.innerHTML = conclusionHtml;
+function conclusionToQuestion(conclusionHtml) {
+    // Translation Map
+    const translationMap = {
+        'é igual a': 'is the same as',
+        'é oposto de': 'is opposite of',
+        'é diferente de': 'is different from',
+        'tem a mesma relação que': 'has the same relation as',
+        'tem uma relação diferente de': 'has a different relation than',
+        'é menos que': 'is less than',
+        'está antes de': 'is before',
+        'contém': 'contains',
+        'está a esquerda de': 'is left of',
+        'está acima de': 'is above',
+        'está em': 'is in'
+    };
+    
+    // Format simple binary conclusions as questions
+    const translatedHtml = conclusionHtml.replace(/(é igual a|é oposto de|é diferente de|tem a mesma relação que|tem uma relação diferente de|é menos que|está antes de|contém|está a esquerda de|está acima de|está em)/g, match => translationMap[match]);
+    return translatedHtml + '?'; // Append a question mark
+}
 
-    const subjects = tmp.querySelectorAll('.subject');
-    const relationEl = tmp.querySelector('.relation');
+// Implementing the new helper into existing functionalities
+function displayInit(formattedConclusion) {
+    // Assume this function handles the display of conclusions
+    const conclusion = conclusionToQuestion(formattedConclusion);
+    // Logic to display the conclusion
+}
 
-    // Only transform simple binary conclusions with exactly two subjects and one relation
-    if (subjects.length === 2 && relationEl) {
-        const a = subjects[0].textContent.trim();
-        const b = subjects[1].textContent.trim();
-        let relationText = relationEl.textContent.replace(/\s+/g, ' ').trim();
+function renderCarousel(carouselConclusion) {
+    const conclusion = conclusionToQuestion(carouselConclusion);
+    // Logic to render the carousel
+}
 
-        // Construct question: "Is A RELATION B?"
-        return `Is ${a} ${relationText} ${b}?`;
-    }
-
-    // Leave complex conclusions untouched
-    return conclusionHtml;
+function createHQLI(historyConclusion) {
+    const conclusion = conclusionToQuestion(historyConclusion);
+    // Logic to handle HQLI creation
 }
